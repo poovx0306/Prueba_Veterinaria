@@ -1,178 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Veterinario Ñogui | Urgencias Tulancingo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #00a3a3; /* Verde médico/veterinario */
-            --secondary: #002147; /* Azul marino confianza */
-            --accent: #e63946; /* Rojo para emergencias */
-            --light: #f8f9fa;
-            --dark: #333;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para mi niña</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400;1,6..96,600&family=Caveat:wght@500;700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#fbe7eb; --ink:#3a1420; --soft:#7d4a58;
+  --cherry:#b3122f; --tape:#f3dfa6;
+  --card:#fffaf6; --card-ink:#3a1420; --film:#1c0b10;
+  --leo:#e8c79b; --spot:#3a2016; --spot-in:#b9793f;
+  --shadow:0 10px 24px -12px rgba(90,20,40,.45);
+  --display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --hand:"Caveat","Segoe Script","Comic Sans MS",cursive;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#200a11; --ink:#fbe1e6; --soft:#d6a3b0;
+  --cherry:#ff7a92; --tape:#c8a968;
+  --card:#f6ece6; --card-ink:#3a1420; --film:#0c0406;
+  --leo:#c9a473; --spot:#2a150d; --spot-in:#8d5628;
+  --shadow:0 12px 26px -12px rgba(0,0,0,.8); color-scheme:dark}}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; color: var(--dark); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+*{box-sizing:border-box}
+img{max-width:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:28px 56px;display:flex;flex-direction:column;gap:72px}
+h1,h2{font-family:var(--display);font-weight:500;margin:0;text-wrap:balance;line-height:1.02}
+h1{font-size:clamp(3rem,11vw,6.5rem);letter-spacing:-.02em}
+h1 em,h2 em{font-style:italic;color:var(--cherry);font-weight:400}
+h2{font-size:clamp(2rem,6vw,3.25rem)}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);font-weight:600}
+.hand{font-family:var(--hand);font-size:1.6rem;line-height:1.2;color:var(--cherry)}
+p{margin:0}
 
-        /* HEADER & NAVIGATION */
-        header {
-            background: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
-        .logo span { color: var(--primary); }
-        
-        nav a { text-decoration: none; color: var(--secondary); margin-left: 20px; font-weight: 600; font-size: 0.9rem; }
-        
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=1200');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 10%;
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+/* polaroid */
+.pola{background:var(--card);color:var(--card-ink);padding:10px 10px 12px;box-shadow:var(--shadow);position:relative;display:block;border:0;cursor:zoom-in;font:inherit;text-align:center;width:100%;transition:transform .25s ease}
+.pola img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.pola span{display:block;font-family:var(--hand);font-size:1.45rem;line-height:1.1;padding-top:10px}
+.pola::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:var(--tape);opacity:.85;transform:rotate(-3deg)}
+.pola:hover,.pola:focus-visible{transform:rotate(0) scale(1.03)!important;z-index:5}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:3px}
 
-        /* BOTONES */
-        .btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: 0.3s;
-            display: inline-block;
-            margin: 10px;
-        }
-        .btn-emergency { background: var(--accent); color: white; border: 2px solid var(--accent); animation: pulse 2s infinite; }
-        .btn-emergency:hover { background: transparent; color: var(--accent); }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(230, 57, 70, 0); }
-            100% { transform: scale(1); }
-        }
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:18px;min-width:0}
+.hero-text p.lead{max-width:34ch;color:var(--soft)}
+.stack{position:relative;aspect-ratio:1/1.3;max-width:100%}
+.stack .pola{position:absolute;width:54%}
+.stack .pola:nth-child(1){left:2%;top:4%;transform:rotate(-7deg)}
+.stack .pola:nth-child(2){right:0;top:0;transform:rotate(6deg)}
+.stack .pola:nth-child(3){left:24%;bottom:0;transform:rotate(-2deg);z-index:2}
+.stack .pola span{font-size:1.2rem}
 
-        /* SERVICES */
-        .services { padding: 80px 10%; background: var(--light); text-align: center; }
-        .services h2 { margin-bottom: 50px; color: var(--secondary); font-size: 2.5rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .service-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .service-card:hover { transform: translateY(-10px); }
-        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+/* leopardo */
+.leo{height:34px;border-radius:999px;background-color:var(--leo);
+  background-image:
+   radial-gradient(ellipse 9px 6px at 18px 12px,var(--spot-in) 55%,transparent 60%),
+   radial-gradient(ellipse 13px 9px at 18px 12px,var(--spot) 62%,transparent 66%),
+   radial-gradient(ellipse 6px 8px at 52px 24px,var(--spot-in) 55%,transparent 60%),
+   radial-gradient(ellipse 10px 11px at 52px 24px,var(--spot) 62%,transparent 66%),
+   radial-gradient(ellipse 5px 4px at 80px 8px,var(--spot) 60%,transparent 66%);
+  background-size:96px 34px}
 
-        /* LOCATION & CONTACT */
-        .contact-info { padding: 80px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .map-placeholder { background: #e2e8f0; height: 400px; border-radius: 15px; display: flex; align-items: center; justify-content: center; border: 2px dashed #cbd5e1; }
-        .info-details h2 { margin-bottom: 20px; color: var(--secondary); }
-        .info-item { display: flex; align-items: center; margin-bottom: 15px; font-size: 1.1rem; }
-        .info-item i { margin-right: 15px; color: var(--primary); width: 25px; }
+/* album */
+.sec{display:flex;flex-direction:column;gap:32px}
+.sec-head{display:flex;flex-direction:column;gap:8px}
+.album{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;align-items:start}
+.album .pola:nth-child(3n+1){transform:rotate(-3deg)}
+.album .pola:nth-child(3n+2){transform:rotate(2deg);margin-top:22px}
+.album .pola:nth-child(3n){transform:rotate(-1.5deg)}
+.album .pola.wide img{aspect-ratio:4/3.2}
 
-        /* FOOTER */
-        footer { background: var(--secondary); color: white; padding: 40px 10%; text-align: center; }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .contact-info { grid-template-columns: 1fr; }
-            nav { display: none; } /* En una demo real pondrías un menú hamburguesa */
-        }
-    </style>
+/* tira de fotocabina */
+.film-scroll{overflow-x:auto;margin-inline:-20px;padding-inline:20px;padding-block:6px 14px}
+.film{display:flex;gap:10px;background:var(--film);padding:26px 14px;width:max-content;position:relative;transform:rotate(-1deg)}
+.film::before,.film::after{content:"";position:absolute;left:8px;right:8px;height:10px;background:repeating-linear-gradient(90deg,var(--card) 0 12px,transparent 12px 26px);opacity:.85}
+.film::before{top:8px}.film::after{bottom:8px}
+.film button{border:0;padding:0;background:none;cursor:zoom-in;display:block}
+.film img{display:block;height:300px;width:190px;object-fit:cover}
+
+footer{display:flex;flex-direction:column;gap:20px;align-items:center;text-align:center}
+footer .hand{font-size:2.2rem}
+
+/* foto ampliada */
+.btn{font:600 1rem var(--body);background:var(--cherry);color:var(--paper);border:0;padding:12px 22px;border-radius:999px;cursor:pointer}
+dialog{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh}
+dialog::backdrop{background:rgba(20,5,10,.82)}
+dialog figure{margin:0;background:var(--card);color:var(--card-ink);padding:12px 12px 16px;text-align:center}
+dialog img{display:block;max-width:100%;max-height:74vh;margin:0 auto}
+dialog figcaption{font-family:var(--hand);font-size:1.6rem;padding-top:10px}
+dialog form{display:flex;justify-content:center;padding-top:12px}
+
+@media (max-width:760px){
+  .wrap{gap:56px}
+  .hero{grid-template-columns:1fr}
+  .album{grid-template-columns:repeat(2,1fr);gap:28px 16px}
+  .album .pola{margin-top:0!important}
+  .pola span{font-size:1.2rem}
+  .film img{height:240px;width:150px}
+}
+@media (prefers-reduced-motion:reduce){.pola{transition:none}}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">HOSPITAL <span>ÑOGUI</span></div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#ubicacion">Ubicación</a>
-            <a href="tel:7750000000" style="color: var(--accent);"><i class="fa-solid fa-phone"></i> 775 000 0000</a>
-        </nav>
-    </header>
+<div class="wrap">
 
-    <section class="hero" id="inicio">
-        <h1>Salud Animal con Ética y Corazón</h1>
-        <p>Referentes en medicina veterinaria en Tulancingo. Contamos con tecnología de vanguardia y atención de urgencias cuando más nos necesitas.</p>
-        <div>
-            <a href="tel:7750000000" class="btn btn-emergency"><i class="fa-solid fa-kit-medical"></i> URGENCIAS AHORA</a>
-            <a href="#servicios" class="btn" style="background: white; color: var(--secondary);">Nuestros Servicios</a>
-        </div>
-    </section>
+  <header class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">Hecho solo para ti</span>
+      <h1>Para <em>mi niña</em> bonita</h1>
+      <p class="lead">Junté nuestras fotos más chuecas, más de cerquita y más nuestras. En todas sales preciosa, hasta cuando sacas la lengua.</p>
+      <p class="hand">te amo, y aquí están las pruebas ♥</p>
+      <div class="leo" role="img" aria-label="Franja de leopardo, como tu chamarra"></div>
+    </div>
+    <div class="stack">
+      <button class="pola" data-cap="feria, leopardo y tú"><img src="img/15.jpg" alt="Ella con chamarra de leopardo sacando la lengua en la feria"><span>feria, leopardo y tú</span></button>
+      <button class="pola" data-cap="los tres"><img src="img/01.jpg" alt="Los dos con el perrito en suéter"><span>los tres</span></button>
+      <button class="pola" data-cap="noche de mascarillas"><img src="img/02.jpg" alt="Los dos con mascarilla negra en la nariz sacando la lengua"><span>noche de mascarillas</span></button>
+    </div>
+  </header>
 
-    <section class="services" id="servicios">
-        <h2>Servicios Especializados</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fa-solid fa-microscope"></i>
-                <h3>Laboratorio</h3>
-                <p>Análisis clínicos rápidos para diagnósticos precisos en minutos.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-stethoscope"></i>
-                <h3>Cirugía</h3>
-                <p>Quirófano equipado para procedimientos de tejidos blandos y ortopedia.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-radiology"></i>
-                <h3>Rayos X</h3>
-                <p>Imagenología digital para detectar cualquier problema interno al instante.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-shield-dog"></i>
-                <h3>Prevención</h3>
-                <p>Esquemas de vacunación y desparasitación de alta calidad.</p>
-            </div>
-        </div>
-    </section>
+  <section class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">El álbum</span>
+      <h2>Nosotros, <em>de cerquita</em></h2>
+    </div>
+    <div class="album">
+      <button class="pola wide" data-cap="tú posando, yo estorbando"><img src="img/04.jpg" alt="Ella sacando la lengua y él asomando un ojo"><span>tú posando, yo estorbando</span></button>
+      <button class="pola" data-cap="cuatro ojos ven más bonito"><img src="img/06.jpg" alt="Los dos con lentes, muy cerca de la cámara"><span>cuatro ojos ven más bonito</span></button>
+      <button class="pola" data-cap="tu sonrisa de cerquita"><img src="img/07.jpg" alt="Ella sonriendo con lentes"><span>tu sonrisa de cerquita</span></button>
+      <button class="pola" data-cap="siempre sacando la lengua"><img src="img/12.jpg" alt="Ella sacando la lengua y él mirando a la cámara"><span>siempre sacando la lengua</span></button>
+      <button class="pola wide" data-cap="besito con mascarilla"><img src="img/09.jpg" alt="Un beso con las mascarillas puestas"><span>besito con mascarilla</span></button>
+      <button class="pola" data-cap="amor del bueno"><img src="img/03.jpg" alt="Ella dándole un beso al perrito"><span>amor del bueno</span></button>
+    </div>
+  </section>
 
-    <section class="contact-info" id="ubicacion">
-        <div class="info-details">
-            <h2>Estamos en el centro de Tulancingo</h2>
-            <div class="info-item">
-                <i class="fa-solid fa-location-dot"></i>
-                <p>Manuel Fernando Soto #310, Col. Centro, Tulancingo, Hgo.</p>
-            </div>
-            <div class="info-item">
-                <i class="fa-solid fa-clock"></i>
-                <p>Lun - Vie: 10am - 7pm | Sáb: 10am - 4pm</p>
-            </div>
-            <div class="info-item">
-                <i class="fa-brands fa-whatsapp"></i>
-                <p>Consultas por WhatsApp: 775 123 4567</p>
-            </div>
-            <div style="margin-top: 30px;">
-                <p><strong>¿Vienes en camino por una urgencia?</strong><br>Avísanos para tener el equipo listo a tu llegada.</p>
-            </div>
-        </div>
-        <div class="map-placeholder">
-            <p><i class="fa-solid fa-map-location-dot"></i> [Mapa Interactivo de Google Maps]</p>
-        </div>
-    </section>
+  <section class="sec">
+    <div class="sec-head">
+      <span class="eyebrow">Tira de fotocabina</span>
+      <h2>Las que <em>nadie más</em> entiende</h2>
+    </div>
+    <div class="film-scroll">
+      <div class="film">
+        <button data-cap="de camino a donde sea, pero contigo"><img src="img/05.jpg" alt="Los dos en el camión, ella con lentes de sol"></button>
+        <button data-cap="en blanco y negro también me encantas"><img src="img/08.jpg" alt="Foto en blanco y negro, ella con lentes"></button>
+        <button data-cap="tú divina, yo asustado"><img src="img/10.jpg" alt="Ella con chamarra de leopardo y él con cara de sorpresa"></button>
+        <button data-cap="la mitad de cada quien"><img src="img/11.jpg" alt="Foto en blanco y negro con la mitad de sus caras"></button>
+        <button data-cap="mi cachorrita enojada"><img src="img/13.jpg" alt="Ella con filtro de perrito dálmata"></button>
+        <button data-cap="igual de locos"><img src="img/14.jpg" alt="Los dos sacando la lengua"></button>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Hospital Veterinario Ñogui - Tulancingo. <br> Desarrollado por Angel Povedano.</p>
-    </footer>
+  <footer>
+    <div class="leo" style="width:min(320px,100%)" aria-hidden="true"></div>
+    <p class="hand">y las fotos que nos faltan ♥</p>
+    <span class="eyebrow">Con amor, Angel</span>
+  </footer>
+</div>
 
+<dialog id="lb" aria-label="Foto ampliada">
+  <figure>
+    <img id="lbimg" src="" alt="">
+    <figcaption id="lbcap"></figcaption>
+    <form method="dialog"><button class="btn">Cerrar</button></form>
+  </figure>
+</dialog>
+
+<script>
+const lb = document.getElementById('lb'),
+      lbimg = document.getElementById('lbimg'),
+      lbcap = document.getElementById('lbcap');
+document.querySelectorAll('[data-cap]').forEach(b => b.addEventListener('click', () => {
+  const i = b.querySelector('img');
+  lbimg.src = i.src; lbimg.alt = i.alt; lbcap.textContent = b.dataset.cap;
+  lb.showModal();
+}));
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+</script>
 </body>
 </html>
